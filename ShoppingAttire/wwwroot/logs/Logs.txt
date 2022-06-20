@@ -1,0 +1,22 @@
+------------------------------------------------------
+A new product has been created. Product details:
+Id: 0
+Name: Product3498
+Price: 31
+Description: Desc4
+Producer's Id: 2
+------------------------------------------------------
+
+------------------------------------------------------
+A product with id=7002 has been modified. Updated product details:
+Id: 7002
+Name: Product3498
+Price: 65
+Description: Desc4
+Producer's Id: 1
+------------------------------------------------------
+
+------------------------------------------------------
+A product with id=7002 has been deleted. 
+------------------------------------------------------
+
