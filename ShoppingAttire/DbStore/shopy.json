@@ -1,0 +1,29 @@
+{
+  "Products": [ //product list start
+    {
+      "Id": 1,
+      "Name": "Product1",
+      "Price": 12.43,
+      "Description": "Desc1"
+    }
+
+  ], //product list end
+
+  "Categories": [
+    {
+      "Id": 1,
+      "ShortName": "Cat1",
+      "LongName": "Category1",
+      "Description": "Desc1"
+    }
+  ],
+
+  "CategoryProduct": [
+    {
+      "ProductId": 1,
+      "CategoryId": 1
+    }
+  ]
+
+
+}

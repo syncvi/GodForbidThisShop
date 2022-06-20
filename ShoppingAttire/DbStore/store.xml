@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<store>
+  <product id="1">
+    <name>Narty</name>
+    <price>399.9</price>
+  </product>
+  <product id="2">
+    <name>Piłka nożna</name>
+    <price>35.99</price>
+  </product>
+</store>

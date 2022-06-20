@@ -1,0 +1,5 @@
+products:
+  - Id: 1
+    Name: Produkt1
+    Price: 12.34
+    Categories:
