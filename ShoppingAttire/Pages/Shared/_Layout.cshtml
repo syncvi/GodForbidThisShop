@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ps5.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="border-bottom">
+        <div class="container">
+            <div class="nav-left">
+            <a asp-page="/MainFun/List">Products</a>
+            &nbsp; &nbsp;&nbsp; &nbsp;
+            <a asp-page="/CategoryFun/List">Categories</a>
+            &nbsp; &nbsp;&nbsp; &nbsp;
+            @if (User.IsInRole("Customer") || User.IsInRole("Admin") || User.IsInRole("Sales")|| User.IsInRole("Moderator"))
+            {
+              <a asp-page="/CartUtils/Cart">Your Cart</a>             
+            }
+            </div>
+            <style>
+                bxd{
+                    margin-left: 2rem;
+                }
+            </style>
+            <div class="nav-right">
+                @if(!(User.IsInRole("Customer") || User.IsInRole("Admin") || User.IsInRole("Sales")|| User.IsInRole("Moderator")))
+                {
+                    <a asp-page="/Login/UserLogin">Sign In</a>
+                    <a>&nbsp; &nbsp;&nbsp; &nbsp;</a>
+                    <a asp-page="/Login/UserRegistration">Sign Up</a>
+
+                }
+                
+                &nbsp; &nbsp;&nbsp; &nbsp;
+                
+                
+                @if (User.IsInRole("Admin"))
+                {
+                 <a asp-page="/Admin/AdminRegistration">Create</a>   
+                }
+                &nbsp; &nbsp;&nbsp; &nbsp;
+                @if (User.IsInRole("Admin"))
+                {
+                 <a asp-page="/Admin/List">Users List</a>   
+                }
+                &nbsp; &nbsp;&nbsp; &nbsp;
+                @if (User.IsInRole("Customer") || User.IsInRole("Admin") || User.IsInRole("Sales")|| User.IsInRole("Moderator"))
+                {
+                    <a asp-page="/Login/UserLogout">Logout</a>
+                }
+            </div>
+            <div class="nav-middle">
+             <a asp-page="/MainFun/Showcase">Showcase</a>
+             </div>
+        </div>
+        
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <style>
+        .hide {
+            display: none;
+        }
+
+        .logo:hover + .hide {
+            display: block;
+            color: #73FD72;
+        }
+    </style>
+    <div class="container text-lg-right">
+        <div class="logo"><a asp-page="Index"><img class="logo" src="~/img/logo.png" /></a></div>
+        <div class="hide"> <a style="color: #73FD72 !important">Press me to return to the Home page:)</a></div>
+    </div>
+
+
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - JEST JAK JEST, ALE DZIALA, MADE BY PIOTR - <a style="color: #73FD72 !important" asp-area="" asp-page="/Privacy">Privacy</a>
+            <div class="nav-right">
+                <a style="color: #73FD72 !important" asp-area="" asp-page="Contact">Contact Us</a>
+                &nbsp; &nbsp;&nbsp; &nbsp;
+                @Model.GetViewTime()
+            </div>
+        </div>    
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <partial name="_ValidationScriptsPartial" />
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

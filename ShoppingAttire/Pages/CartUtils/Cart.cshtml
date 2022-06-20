@@ -1,0 +1,48 @@
+﻿@page
+@model ShoppingAttire.Pages.CartModel
+@{
+    Layout = "_Layout";
+    ViewData["title"] = "Carti";
+}
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+</head>
+<h2 class="mb-4">
+    Cart
+</h2>
+
+@if (Model.cartProducts.Count == 0)
+{
+    <div class="text-center"><h3>Your cart is empty</h3></div>
+}
+else
+{
+    <table class="table table-dark table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">@Html.DisplayNameFor(model => Model.cartProducts[0].Id)</th>
+                <th scope="col">@Html.DisplayNameFor(model => Model.cartProducts[0].Name)</th>
+                <th scope="col">@Html.DisplayNameFor(model => Model.cartProducts[0].Price)</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (int i = 0; i < Model.cartProducts.Count; i++)
+            {
+                <tr>
+                    <th scope="row">@Html.DisplayFor(m => Model.cartProducts[i].Id)</th>
+                    <td>@Html.DisplayFor(m => Model.cartProducts[i].Name)</td>
+                    <td>@Html.DisplayFor(m => Model.cartProducts[i].Price)</td>
+                    <td>
+                        <a asp-page="/MainFun/Details" asp-route-givenId=@Model.cartProducts[i].Id>Details</a> |
+                        <a asp-page="CartRemoval" asp-route-givenId=@i><img class="cross" src="~/img/crossi.png" /></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a asp-page="CartCleaner"><button class="button-33">Empty your Cart</button></a>
+
+}

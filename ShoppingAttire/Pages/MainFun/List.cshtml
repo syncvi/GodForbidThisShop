@@ -1,0 +1,59 @@
+﻿@page
+@model ShoppingAttire.Pages.ListModel
+@{
+    ViewData["Title"] = "Product List";
+}
+
+<title>Product List</title>
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<h2 class="mb-4">Product List</h2>
+
+    
+
+
+
+
+
+
+<div>
+
+    
+</div>
+<table class="table table-dark table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => Model.productList[0].Id)</th>
+            <th scope="col">@Html.DisplayNameFor(model => Model.productList[0].Name)</th>
+            <th scope="col">@Html.DisplayNameFor(model => Model.productList[0].Price)</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var p in Model.productList)
+        {
+            <tr>
+                <th scope="row">@Html.DisplayFor(m => p.Id)</th>
+                <td>@Html.DisplayFor(m => p.Name)</td>
+                <td>@Html.DisplayFor(m => p.Price)</td>
+                <td>
+                    <!--important routing, name of Id variable has to be the same in html and in the model-->
+                    <a asp-page="./Details" asp-route-givenId=@p.Id>Details</a> |
+                    <a asp-page="./Update" asp-route-givenId=@p.Id>Update</a> |
+                    <a asp-page="./Delete" asp-route-givenId=@p.Id>Delete</a> |
+                    <a asp-page="/CartUtils/ShortCut" asp-route-givenId=@p.Id><img class="carti" src="~/other/carti.png" /></a>|
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@if (User.IsInRole("Admin") || User.IsInRole("Sales")){
+    <div class="row col-sm-12 mt-5">
+    <a asp-page="./Insert"><button class="button-33">Insert Product</button></a>
+    </div>
+}
+

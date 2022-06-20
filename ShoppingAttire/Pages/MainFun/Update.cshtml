@@ -1,0 +1,95 @@
+﻿@page
+@model ShoppingAttire.Pages.UpdateModel
+@{
+    Layout = "_Layout";
+    ViewData["title"] = "Update Product";
+}
+<title>Update Product</title>
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+</head>
+<h2 class="mb-4">Update Product</h2>
+ <style>
+ body {
+  
+  color: #99eeb4;
+  height: 100vh;
+  display: flex;
+}
+
+/* We set the position to relative so that we can stack a blurred pseudo element on top of the original text */
+
+span {
+  position: relative;
+  font-family: "Avenir Next", sans-serif;
+  font-weight: 900;
+  font-size: 32px;
+  text-transform: uppercase;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  display: inline-block;
+}
+
+/* We create a pseudo element and blur it using the SVG filter. We’ll grab the content from the custom HTML attribute. */
+
+span:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: attr(filter-content);
+
+  filter: url(#motion-blur-filter);
+}
+
+</style>
+<div class="container">
+    <form class="form-horizontal" method="post">
+        @Html.Hidden("Product.Id", Model.Product.Id)
+
+        <div class="form-group">
+            <label asp-for="Product.Name" class="control-label col-sm-2"></label>
+            <div class="col-sm-6">
+                <input asp-for="Product.Name" class="form-control">
+            </div>
+            <span asp-validation-for="Product.Name"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Product.Price" class="control-label col-sm-2"></label>
+            <div class="col-sm-6">
+                <input asp-for="Product.Price" class="form-control">
+            </div>
+            <span asp-validation-for="Product.Price"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Product.Description" class="control-label col-sm-2"></label>
+            <div class="col-sm-6">
+                <input asp-for="Product.Description" class="form-control">
+            </div>
+
+            <span asp-validation-for="Product.Description"></span>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">Categories</label>
+            <div class="col-sm-6">
+                <select multiple name="LinkedList" class="custom-selector" asp-items="Model.categorySelection"></select>    
+            </div>
+        </div>
+
+         <div class="form-group">
+            <label class="control-label col-sm-2">Producers</label>
+            <div class="col-sm-6">
+                <select name="Linkage" class="custom-selector" asp-items="Model.producerSelection"></select>    
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button class="button-33">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

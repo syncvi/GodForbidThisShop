@@ -1,0 +1,89 @@
+﻿@page
+@model ShoppingAttire.Pages.DetailsModel
+@{
+    Layout = "_Layout";
+    ViewData["title"] = "Product Details";
+}
+
+<title>Product Details</title>
+<h2 class="mb-4">Product Details</h2>
+
+<form class="form-horizontal" method="post">
+    <input asp-for="Product.Id" type="hidden" disabled />
+
+
+    <div class="form-group">
+        <label asp-for="Product.Name" class="control-label col-sm-2"></label>
+
+        <div class="col-sm-6">
+            <input asp-for="Product.Name" class="form-control" disabled />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Product.Price" class="control-label col-sm-2"></label>
+
+        <div class="col-sm-6">
+            <input asp-for="Product.Price" class="form-control" disabled />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Product.Description" class="control-label col-sm-2"></label>
+
+        <div class="col-sm-6">
+            <input asp-for="Product.Description" class="form-control" disabled />
+        </div>
+    </div>
+
+
+<style>
+ body {
+  
+  color: #99eeb4;
+  height: 100vh;
+  display: flex;
+}
+
+/* We set the position to relative so that we can stack a blurred pseudo element on top of the original text */
+
+span {
+  position: relative;
+  font-family: "Avenir Next", sans-serif;
+  font-weight: 900;
+  font-size: 32px;
+  text-transform: uppercase;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  display: inline-block;
+}
+
+/* We create a pseudo element and blur it using the SVG filter. We’ll grab the content from the custom HTML attribute. */
+
+span:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: attr(filter-content);
+
+  filter: url(#motion-blur-filter);
+}
+
+</style>
+    <div class="form-group">
+        <label asp-for="Producer.ProducerName" class="control-label col-sm-2"></label>
+
+        <div class="col-sm-6">
+            <input asp-for="Producer.ProducerName" class="form-control" disabled />
+        </div>
+    </div>
+
+    <div class="form-group">
+            <label class="control-label col-sm-2">Categories</label>
+            <div class="col-sm-6">
+                
+             <span>  @Model.DisplayAssignedCategories() </span>
+            </div>
+        </div>
+</form>
+<a asp-page="./List"><button class="button-34">Return</button></a>
