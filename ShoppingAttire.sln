@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingAttire", "ShoppingAttire\ShoppingAttire.csproj", "{0CF9453B-C024-4BE8-BDF1-9C0162C768EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0CF9453B-C024-4BE8-BDF1-9C0162C768EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CF9453B-C024-4BE8-BDF1-9C0162C768EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CF9453B-C024-4BE8-BDF1-9C0162C768EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CF9453B-C024-4BE8-BDF1-9C0162C768EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0D51BC6F-485F-413B-9B3A-DE00CCC72A7B}
+	EndGlobalSection
+EndGlobal
