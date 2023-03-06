@@ -1,3 +1,3 @@
 # GodForbidThisShop
 
-### Bro I hate this framework
+A .NET project with shopping functionality.
